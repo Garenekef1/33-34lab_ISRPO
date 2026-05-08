@@ -1,0 +1,74 @@
+@baseUrl = http://localhost:5154
+
+GET {{baseUrl}}/api/categories
+Accept: application/json
+
+###
+
+GET {{baseUrl}}/api/categories/2/notes
+Accept: application/json
+
+###
+
+POST {{baseUrl}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Проекты",
+  "description": "Заметки по проектам",
+  "color": "#9b59b6"
+}
+
+###
+
+DELETE {{baseUrl}}/api/categories/1
+Accept: application/json
+
+###
+
+GET {{baseUrl}}/api/notes
+Accept: application/json
+
+###
+
+GET {{baseUrl}}/api/notes?categoryId=2&search=LINQ&minPriority=3
+Accept: application/json
+
+###
+
+POST {{baseUrl}}/api/notes
+Content-Type: application/json
+
+{
+  "categoryId": 99,
+  "title": "Неверная заметка",
+  "content": "Категории не существует",
+  "priority": 3
+}
+
+###
+
+POST {{baseUrl}}/api/notes
+Content-Type: application/json
+
+{
+  "categoryId": 2,
+  "title": "Новая заметка",
+  "content": "Создана через REST Client",
+  "priority": 4
+}
+
+###
+
+PATCH {{baseUrl}}/api/notes/1/pin
+Accept: application/json
+
+###
+
+PATCH {{baseUrl}}/api/notes/5/archive
+Accept: application/json
+
+###
+
+DELETE {{baseUrl}}/api/notes/4
+Accept: application/json
